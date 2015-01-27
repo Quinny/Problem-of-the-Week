@@ -1,3 +1,14 @@
+'''
+Given a pattern such as "abba", and a string such as "redbluebluered"
+Indicate whether or not the string matches the given pattern
+
+Note that each element of the pattern must match to a distinct string hence,
+"redbluebluered" would not match "aaaa"
+
+Expected runtime: O(2^n)
+with no memory restrictions
+'''
+
 def partitions(s, k): # generate all the different k paritions of s
   if not k:
     yield [s]
@@ -43,8 +54,8 @@ def check(part, indexes): # checks if a given partition indexes are all equal
 			return ["",False]
 	return [first,True]
 
-pattern = input()
-string = input()
+pattern = raw_input()
+string = raw_input()
 parts = filter(lambda x: '' not in x, list(partitions(string,len(pattern) - 1))) # filter out all partitions that contain the empty string
 if(matches(parts, pattern)):
 	print "1"

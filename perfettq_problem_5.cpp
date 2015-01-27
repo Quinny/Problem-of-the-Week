@@ -1,3 +1,12 @@
+/*
+ * Given two sorted arrays, find the kth smallest element between them as if they
+ * were merged.
+ *
+ * Note that no duplicates will occur, and the arrays may have different sizes
+ *
+ * Expected runtime: O(log(n) + log(m))
+ */
+
 #include <iostream>
 #include <vector>
 

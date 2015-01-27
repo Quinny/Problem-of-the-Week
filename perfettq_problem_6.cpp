@@ -1,3 +1,14 @@
+/*
+ * Given a list of integers such that the i'th element represents the price
+ * of a stock on the i'th day, output the maximum profit that can be made over the
+ * time period.
+ *
+ * Note that you may only by 1 unit at a time, and must sell that unit in order
+ * to buy again.
+ *
+ * Expected runtime: O(n)
+ */
+
 #include <iostream>
 #include <vector>
 

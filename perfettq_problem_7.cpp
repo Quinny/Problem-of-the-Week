@@ -1,3 +1,11 @@
+/*
+ * Given a list of integers where every element has a duplicate except one,
+ * find the non duplicated element.
+ *
+ * Expected runtime: O(n)
+ * Expected memory:  O(1)
+ */
+
 #include <iostream>
 #include <vector>
 

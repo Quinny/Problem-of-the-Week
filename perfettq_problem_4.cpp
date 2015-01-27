@@ -1,3 +1,13 @@
+/*
+ * two characters a and b are said to be adjacent if they differ by exactly 1 bit
+ * ex. 1001 and 1011 are adjacent, where as 1001 and 0101 are not.
+ *
+ * Given 2 characters a and b, check whether they are adjacent
+ * Note if a and b are the same, they are NOT adjacent
+ *
+ * Expected runtime: O(1)
+ */
+
 #include <iostream>
 
 bool adjacent(char, char);

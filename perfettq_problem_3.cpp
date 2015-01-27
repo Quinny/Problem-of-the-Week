@@ -1,3 +1,11 @@
+/*
+ * Given a list of m integers, find all pairs that sum to an integer n, and display
+ * them in ascending order according to the first number in the pair.
+ *
+ * The pairs should be generated in O(n) time, and the sorting can be done in
+ * O(nlog(n)) time.
+ */
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>

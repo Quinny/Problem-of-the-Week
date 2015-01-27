@@ -1,3 +1,9 @@
+/* Given 2 sorted arrays, find the median between the 2 as if they were merged.
+ * Note that the arrays can have different lengths
+ *
+ * Expected runtime: O(log(m + n))
+ */
+
 #include <iostream>
 #include <algorithm>
 
