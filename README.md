@@ -63,3 +63,10 @@ Given a list of integers where every element has a duplicate except one,find the
      
 Expected runtime: O(n)
 Expected memory:  O(1)
+
+Week 8
+========
+
+Given a list of weights of stones where all stones are the same weight except one that is heavier, find the index of that heavy stone.
+
+The only function which can be used to compare stones is "heavier", which takes in two sets of iterators and returns 1 if the stones in the first set are heavier, 2 if the stones in the second set are heavier, and 0 if the weights are the same.
