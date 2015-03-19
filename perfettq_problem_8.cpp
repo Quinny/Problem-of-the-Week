@@ -12,6 +12,8 @@
 #include <numeric>
 #include <iterator>
 #include <vector>
+#include <cmath>
+#define DEBUG 0
 
 template <typename T>
 int heavier(T first1, T last1, T first2, T last2);
@@ -19,12 +21,11 @@ template <typename T>
 T heavy_marble(T first, T last);
 template <typename T>
 std::pair<T, T> third(T first, T last);
-
 template <typename T>
 int heavy_marble_index_to_make_nusko_happy(T first, T last);
 
 int main() {
-    std::vector<int> marbles {1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    std::vector<int> marbles {1, 8, 1, 1, 1};
     auto i = heavy_marble_index_to_make_nusko_happy(marbles.begin(), marbles.end());
     std::cout << i << std::endl;
     return 0;
@@ -39,7 +40,9 @@ int heavy_marble_index_to_make_nusko_happy(T first, T last) {
 template <typename T>
 std::pair<T, T> thirds(T first, T last) {
     auto size = std::distance(first, last);
-    return std::make_pair(first + (size / 3), first + (2 * size / 3));
+    auto i = first + std::ceil(size / 3.0);
+    auto j = i + std::ceil(size / 3.0);
+    return std::make_pair(i, j);
 }
 
 template <typename T>
@@ -49,9 +52,29 @@ T heavy_marble(T first, T last) {
         return first;
     auto splits = thirds(first, last);
     auto r = heavier(first, splits.first, splits.first, splits.second);
+
+#if DEBUG
+    std::cout << "first split: ";
+    for (auto i = first; i != splits.first; ++i)
+        std::cout << *i << " ";
+    std::cout << std::endl;
+
+    std::cout << "second split: ";
+    for (auto i = splits.first; i != splits.second; ++i)
+        std::cout << *i << " ";
+    std::cout << std::endl;
+
+    std::cout << "third split: ";
+    for (auto i = splits.second; i != last; ++i)
+        std::cout << *i << " ";
+    std::cout << std::endl;
+    std::cout << "----------------" << std::endl;
+    std::string wait;
+    std::cin >> wait;
+#endif
     if (r == 0)
-        return heavy_marble(splits.second - 1, last);
-    if (r == 1)
+        return heavy_marble(splits.second, last);
+    else if (r == 1)
         return  heavy_marble(first, splits.first);
     else
         return heavy_marble(splits.first, splits.second);
@@ -67,5 +90,3 @@ int heavier(T first1, T last1, T first2, T last2) {
         return 2;
     return 0;
 }
-
-

@@ -70,3 +70,11 @@ Week 8
 Given a list of weights of stones where all stones are the same weight except one that is heavier, find the index of that heavy stone.
 
 The only function which can be used to compare stones is "heavier", which takes in two sets of iterators and returns 1 if the stones in the first set are heavier, 2 if the stones in the second set are heavier, and 0 if the weights are the same.
+
+Week 9
+===========
+
+Given the heads of 2 singly linked lists, and the fact that they intersect at some point, find that point of intersection.
+
+Expected Runtime: O(n)
+Expected Memory:  O(1)
