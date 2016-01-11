@@ -3,3 +3,10 @@
 *_tester*
 *.log
 *.aux
+*.pyc
+TEMP.*
+others/
+*.class
+*.exe
+*.hi
+*.o

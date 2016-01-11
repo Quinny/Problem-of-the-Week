@@ -70,6 +70,20 @@ def hs_handler(source):
 def ruby_handler(source):
     return ["ruby", source]
 
+def cs_handler(source):
+    ret = subprocess.call(["mcs", source])
+    if ret != 0:
+        print "Error compiling " + source
+        sys.exit(1)
+    return ["mono", source.split(".")[0] + ".exe"]
+
+def c_handler(source):
+    ret = subprocess.call(["cc", source])
+    if ret != 0:
+        print "Error compiling " + source
+        sys.exit(1)
+    return ["./a.out"]
+
 def run_command(source):
     run_handlers = {
         "cpp":  cpp_handler,
@@ -77,6 +91,8 @@ def run_command(source):
         "py":   python_handler,
         "js":   js_handler,
         "hs":   hs_handler,
-        "rb":   ruby_handler
+        "rb":   ruby_handler,
+        "cs":   cs_handler,
+        "c":    c_handler
     }
     return run_handlers[source.split(".")[-1]](source)
