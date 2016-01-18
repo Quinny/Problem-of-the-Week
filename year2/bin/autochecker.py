@@ -4,6 +4,7 @@ import subprocess
 
 TEST_DIR = "tests/"
 
+# Check if a test directory exists
 def assert_test_dir():
     if not os.path.isdir(TEST_DIR):
         print "tests/ directory required and not found"
@@ -18,18 +19,21 @@ def is_answer_file(f):
 def prepend_dir(f):
     return TEST_DIR + f
 
+# Get all test files in the tests/ directory
 def test_files():
     return map(prepend_dir, filter(
         is_test_file,
         os.listdir(TEST_DIR)
     ))
 
+# get all answer files
 def answer_files():
     return map(prepend_dir, filter(
         is_answer_file,
         os.listdir(TEST_DIR)
     ))
 
+# create a test file with the given contents
 def make_test(n, contents):
     f = open(TEST_DIR + str(n) + ".test", "w")
     f.write(contents)
@@ -39,6 +43,14 @@ def make_answer(n, contents):
     f = open(TEST_DIR + str(n) + ".answer", "w")
     f.write(contents)
     f.close()
+
+
+'''
+
+All *_handler functions take a file name, perform any compiling nessecary
+and then return an array of the commands needed to execute
+
+'''
 
 def cpp_handler(source):
     ret = subprocess.call(["g++", "-std=c++1y", source])
@@ -84,6 +96,8 @@ def c_handler(source):
         sys.exit(1)
     return ["./a.out"]
 
+# Given a source file, perform compile operations and
+# get the run command back
 def run_command(source):
     run_handlers = {
         "cpp":  cpp_handler,
