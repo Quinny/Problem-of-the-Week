@@ -15,7 +15,7 @@ for i in range(len(tests)):
     print "running test " + str(i) + "/" + str(len(tests))
     output = subprocess.check_output(run_command, stdin=open(tests[i]))
     expected = open(answers[i]).read()
-    if output != expected:
+    if output.strip() != expected.strip():
         tmp = open('TEMP.ans', 'w')
         tmp.write(output)
         tmp.close()
@@ -28,6 +28,9 @@ for i in range(len(tests)):
         tmpout = open("TEMP.out", "r")
         print "Failed!"
         print tmpout.read()
+
+        os.remove("TEMP.out")
+        os.remove("TEMP.ans")
         sys.exit(1)
 
 print "Passed!"

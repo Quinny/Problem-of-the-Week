@@ -10,3 +10,8 @@ others/
 *.exe
 *.hi
 *.o
+*.ppm
+solution/*.out
+solution/*.in
+solution/*.ans
+solution/*.test
