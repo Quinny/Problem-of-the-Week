@@ -12,10 +12,13 @@ autochecker.assert_test_dir()
 tests = autochecker.test_files()
 answers = autochecker.answer_files()
 run_command = autochecker.run_command(sys.argv[1])
+skip_verification = sys.argv[2] == "nocheck" if len(sys.argv) == 3 else False
 total_run_time = timedelta()
 
 for i in range(len(tests)):
     print "running test " + str(i) + "/" + str(len(tests))
+    if skip_verification:
+        print "Skipping check"
 
     before = datetime.now()
     output = subprocess.check_output(run_command, stdin=open(tests[i]))
@@ -23,7 +26,7 @@ for i in range(len(tests)):
     total_run_time += after - before
 
     expected = open(answers[i]).read()
-    if output.strip() != expected.strip():
+    if output.strip() != expected.strip() and not skip_verification:
         print "Failed"
 
         d = Differ()
