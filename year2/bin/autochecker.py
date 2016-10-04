@@ -53,7 +53,7 @@ and then return an array of the commands needed to execute
 '''
 
 def cpp_handler(source):
-    ret = subprocess.call(["g++", "-std=c++1y", source])
+    ret = subprocess.call(["g++", "-std=c++1y", "-O3", source])
     if ret != 0:
         print "Error compiling " + source
         sys.exit(1)
@@ -90,14 +90,14 @@ def cs_handler(source):
     return ["mono", source.split(".")[0] + ".exe"]
 
 def c_handler(source):
-    ret = subprocess.call(["cc", source])
+    ret = subprocess.call(["cc", "-O3", source])
     if ret != 0:
         print "Error compiling " + source
         sys.exit(1)
     return ["./a.out"]
 
 def rust_handler(source):
-    ret = subprocess.call(["rustc", source, "-o", "a.out"])
+    ret = subprocess.call(["rustc", source, "-o", "a.out", "-O"])
     if ret != 0:
         print "Error compiling " + source
         sys.exit(1)
