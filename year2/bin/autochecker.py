@@ -67,6 +67,8 @@ def java_handler(source):
     return ["java", source.split(".")[0]]
 
 def python_handler(source):
+    if "python3" in open(source).readline():
+        return ["python3", source]
     return ["python", source]
 
 def js_handler(source):
