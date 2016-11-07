@@ -105,6 +105,12 @@ def rust_handler(source):
         sys.exit(1)
     return ["./a.out"]
 
+def go_handler(source):
+    return ["go", "run", source]
+
+def php_handler(source):
+    return ["php", source]
+
 # Given a source file, perform compile operations and
 # get the run command back
 def run_command(source):
@@ -117,6 +123,8 @@ def run_command(source):
         "rb":   ruby_handler,
         "cs":   cs_handler,
         "c":    c_handler,
-        "rs":   rust_handler
+        "rs":   rust_handler,
+        "go":   go_handler,
+        "php":  php_handler,
     }
     return run_handlers[source.split(".")[-1]](source)
