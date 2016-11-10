@@ -111,6 +111,9 @@ def go_handler(source):
 def php_handler(source):
     return ["php", source]
 
+def moon_handler(source):
+    return ["moon", source]
+
 # Given a source file, perform compile operations and
 # get the run command back
 def run_command(source):
@@ -126,5 +129,6 @@ def run_command(source):
         "rs":   rust_handler,
         "go":   go_handler,
         "php":  php_handler,
+        "moon": moon_handler,
     }
     return run_handlers[source.split(".")[-1]](source)
