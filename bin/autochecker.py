@@ -35,14 +35,12 @@ def answer_files():
 
 # create a test file with the given contents
 def make_test(n, contents):
-    f = open(TEST_DIR + str(n) + ".test", "w")
-    f.write(contents)
-    f.close()
+    with open(TEST_DIR + str(n) + ".test", "w") as f:
+        f.write(contents)
 
 def make_answer(n, contents):
-    f = open(TEST_DIR + str(n) + ".answer", "w")
-    f.write(contents)
-    f.close()
+    with open(TEST_DIR + str(n) + ".answer", "w") as f:
+        f.write(contents)
 
 
 '''
@@ -67,9 +65,9 @@ def java_handler(source):
     return ["java", source.split(".")[0]]
 
 def python_handler(source):
-    if "python3" in open(source).readline():
-        return ["python3", source]
-    return ["python", source]
+    if "python2" in open(source).readline():
+        return ["python", source]
+    return ["python3", source]
 
 def js_handler(source):
     return ["node", source]

@@ -65,7 +65,7 @@ int main() {
                 q.push({t.second, i});
         }
     }
-    
+
     // Iterate through the sorted collection of names obtained earlier
     for (auto i : name_set) {
         std::cout << i << " ";
