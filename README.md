@@ -1,3 +1,9 @@
+
+# uWindsor Problem of the Week
+
+This repository contains the tools used to create problem of the week test cases
+and validate solutions.  It also contains solutions to the previous year's problems.
+
 # Table of Contents
 
 - [uWindsor Problem of the Week](#)
@@ -7,11 +13,6 @@
     - [potw_test](#)
     - [potw_runtime](#)
     - [Adding a new language/changing compilers](#)
-
-# uWindsor Problem of the Week
-
-This repository contains the tools used to create problem of the week test cases
-and validate solutions.  It also contains solutions to the previous year's problems.
 
 # Using the tools
 
