@@ -10,11 +10,11 @@ def is_valid(sentence, dictionary):
     return False
 
 def main():
-    n = int(raw_input().strip())
-    dictionary = { raw_input().strip() for i in range(n) }
+    n = int(input().strip())
+    dictionary = { input().strip() for i in range(n) }
 
-    m = int(raw_input().strip())
-    print "\n".join(map(str, [int(is_valid(raw_input().strip(), dictionary)) for i in range(m)]))
+    m = int(input().strip())
+    print("\n".join(map(str, [int(is_valid(input().strip(), dictionary)) for i in range(m)])))
 
 if __name__ == "__main__":
     main()
