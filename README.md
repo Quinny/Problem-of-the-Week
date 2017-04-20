@@ -3,6 +3,16 @@
 This repository contains the tools used to create problem of the week test cases
 and validate solutions.  It also contains solutions to the previous year's problems.
 
+# Table of Contents
+
+- [uWindsor Problem of the Week](#)
+- [Using the tools](#)
+    - [Conventions](#)
+    - [potw_make_answers](#)
+    - [potw_test](#)
+    - [potw_runtime](#)
+    - [Adding a new language/changing compilers](#)
+
 # Using the tools
 
 Within the `bin` folder you will find the utilities used to help automate POTW
